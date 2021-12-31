@@ -10,6 +10,15 @@ const Book = () => (
     <Image />
     <Title />
     <Author />
+    <Image />
+    <Title />
+    <Author />
+    <Image />
+    <Title />
+    <Author />
+    <Image />
+    <Title />
+    <Author />
   </article>
 );
 
