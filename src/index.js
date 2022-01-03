@@ -5,17 +5,37 @@ import ReactDom from "react-dom";
 import "./index.css";
 
 // set up vars
-const firstBook = {
-  img: "https://m.media-amazon.com/images/I/8144Vic9C5L._AC_UL640_FMwebp_QL65_.jpg",
-  title: "I love you to the Moon and Back",
-  author: "by Publications International Ltd.",
-};
+// const firstBook = {
+//   img: "https://m.media-amazon.com/images/I/8144Vic9C5L._AC_UL640_FMwebp_QL65_.jpg",
+//   title: "I love you to the Moon and Back",
+//   author: "by Publications International Ltd.",
+// };
 
-const secondBook = {
-  img: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL640_FMwebp_QL65_.jpg",
-  title: "Our Class is a Family",
-  author: "by Shannon Olsen and Sandie Sonke",
-};
+// const secondBook = {
+//   img: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL640_FMwebp_QL65_.jpg",
+//   title: "Our Class is a Family",
+//   author: "by Shannon Olsen and Sandie Sonke",
+// };
+
+// set up a proper list
+const books = [
+  {
+    img: "https://m.media-amazon.com/images/I/8144Vic9C5L._AC_UL640_FMwebp_QL65_.jpg",
+    title: "I love you to the Moon and Back",
+    author: "by Publications International Ltd.",
+  },
+
+  {
+    img: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL640_FMwebp_QL65_.jpg",
+    title: "Our Class is a Family",
+    author: "by Shannon Olsen and Sandie Sonke",
+  },
+  {
+    img: "https://m.media-amazon.com/images/I/91HHxxtA1wL._AC_UL640_FMwebp_QL65_.jpg",
+    title: "The Wonderful Things You Will Be",
+    author: "by Emily Winfield Martin",
+  },
+];
 
 // const author = "by Publications International Ltd.";
 // const title = "I love you to the Moon and Back";
@@ -25,28 +45,50 @@ const secondBook = {
 function Booklist() {
   return (
     <section className="booklist">
-      <Book
+      {books.map((book) => {
+        return <Book book={book}></Book>;
+      })}
+      {/* <Book
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Show a child just how strong your love is every minute of the day!
+          Features a "To" and "From" personalization page, making this sweet
+          offering an ideal gift for baby showers, birthdays, and new parents.
+        </p>
+      </Book>
       <Book
         img={secondBook.img}
         title={secondBook.title}
         author={secondBook.author}
-      />
+      /> */}
     </section>
   );
 }
 
 const Book = (props) => {
+  const { img, title, author } = props.book;
+
   return (
     <article className="book">
-      <img src={props.img} alt=""></img>
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} alt=""></img>
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   );
+
+  // const { img, title, author, children } = props;
+
+  // return (
+  //   <article className="book">
+  //     <img src={img} alt=""></img>
+  //     <h1>{title}</h1>
+  //     <h4>{author}</h4>
+  //     {children}
+  //   </article>
+  // );
 };
 ReactDom.render(<Booklist />, document.getElementById("root"));
 // ***********************************************************************
