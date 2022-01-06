@@ -4,6 +4,10 @@ import ReactDom from "react-dom";
 //import CSS
 import "./index.css";
 
+//import book list
+import { books } from "./books";
+
+import Book from "./Book";
 // set up vars
 // const firstBook = {
 //   img: "https://m.media-amazon.com/images/I/8144Vic9C5L._AC_UL640_FMwebp_QL65_.jpg",
@@ -16,30 +20,6 @@ import "./index.css";
 //   title: "Our Class is a Family",
 //   author: "by Shannon Olsen and Sandie Sonke",
 // };
-
-// set up a proper list
-const books = [
-  {
-    id: 1,
-    img: "https://m.media-amazon.com/images/I/8144Vic9C5L._AC_UL640_FMwebp_QL65_.jpg",
-    title: "I love you to the Moon and Back",
-    author: "by Publications International Ltd.",
-  },
-
-  {
-    id: 2,
-    img: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UL640_FMwebp_QL65_.jpg",
-    title: "Our Class is a Family",
-    author: "by Shannon Olsen and Sandie Sonke",
-  },
-
-  {
-    id: 3,
-    img: "https://m.media-amazon.com/images/I/91HHxxtA1wL._AC_UL640_FMwebp_QL65_.jpg",
-    title: "The Wonderful Things You Will Be",
-    author: "by Emily Winfield Martin",
-  },
-];
 
 // const author = "by Publications International Ltd.";
 // const title = "I love you to the Moon and Back";
@@ -72,50 +52,6 @@ function Booklist() {
   );
 }
 
-const Book = ({ img, title, author }) => {
-  // const Book = (props) => {
-  // const { img, title, author } = props.book;
-
-  // attribute, eventHandler
-  // onClick, onMouseOver
-  const clickHandler = () => {
-    alert("hello world");
-  };
-
-  const complicatedExample = (author) => {
-    console.log(author);
-  };
-
-  return (
-    <article
-      className="book"
-      onMouseOver={() => {
-        console.log(title);
-      }}
-    >
-      <img src={img} alt=""></img>
-      <h1 onClick={() => console.log(title)}>{title}</h1>
-      <h4>{author}</h4>
-      <button type="button" onClick={clickHandler}>
-        example
-      </button>
-      <button type="button" onClick={complicatedExample(author)}>
-        complcate example
-      </button>
-    </article>
-  );
-
-  // const { img, title, author, children } = props;
-
-  // return (
-  //   <article className="book">
-  //     <img src={img} alt=""></img>
-  //     <h1>{title}</h1>
-  //     <h4>{author}</h4>
-  //     {children}
-  //   </article>
-  // );
-};
 ReactDom.render(<Booklist />, document.getElementById("root"));
 // ***********************************************************************
 // function Greeting() {
